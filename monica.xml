@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Name>Monica</Name>
+  <Beta>False</Beta>
+  <Category>HomeAutomation:</Category>
+  <Overview>
+    MonicaHQ, the Personal Relationship Manager[br][br][b]Converted By Community Applications[/b][br][br]Always verify this template (and values) against the dockerhub support page for the container
+  </Overview>
+  <Registry>https://hub.docker.com/r/monicahq/monicahq/~/dockerfile/</Registry>
+  <GitHub>https://github.com/monicahq/monica</GitHub>
+  <Repository>monicahq/monicahq</Repository>
+  <Support>rod@rod.me</Support>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Network>bridge</Network>
+  <WebUI>http://[IP]/</WebUI>
+  <Icon>https://avatars0.githubusercontent.com/u/25832602?s=200&v=4</Icon>
+  <ExtraParams></ExtraParams>
+  <Config Type="Path" Name="Public" Target="/var/www/monica/storage/app/public" Default="/mnt/user/appdata/Monica" Mode="rw" Description="" Display="always" Required="true">/mnt/user/appdata/Monica</Config>
+  <!-- We do not want to run this with any kind of permissions -->
+  <Config Type="Variable" Name="Run as specified user" Target="APP_USER" Default="nobody" Description="Run application with specified user name." Mask="false" Display="advanced" Required="true">nobody</Config>
+  <!-- We need to ensure we run with the same nobody -->
+  <Config Type="Variable" Name="Run with user ID" Target="APP_UID" Default="99" Description="Run application with specified user id." Mask="false" Display="advanced" Required="true">99</Config>
+  <!-- Same deal, don't run on thing swe don't need -->
+  <Config Type="Variable" Name="Run with group ID" Target="APP_GID" Default="100" Description="Run application with specified group id." Mask="false" Display="advanced" Required="true">99</Config>
+  <!-- Live on the edge -->
+
+  <Config Type="Port" Name="Web UI Port" Target="80" Default="80" Mode="tcp" Description="This is the web UI port that exposes the web interface to run things with." Display="always" Required="true">80</Config>
+
+
+
+
+
+
+<Config Type="Variable" Name="APP_ENV" Target="APP_ENV" Default="" Description="" Mask="false" Display="advanced" Required="true">local
+</Config>
+
+<Config Type="Variable" Name="APP_DEBUG" Target="APP_DEBUG" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="APP_KEY" Target="APP_KEY" Default="" Description="" Mask="false" Display="advanced" Required="true">ChangeMeBy32KeyLengthOrGenerated
+</Config>
+
+<Config Type="Variable" Name="HASH_SALT" Target="HASH_SALT" Default="" Description="" Mask="false" Display="advanced" Required="true">ChangeMeBy20+KeyLength
+</Config>
+
+<Config Type="Variable" Name="HASH_LENGTH" Target="HASH_LENGTH" Default="" Description="" Mask="false" Display="advanced" Required="true">18
+</Config>
+
+<Config Type="Variable" Name="APP_URL" Target="APP_URL" Default="" Description="" Mask="false" Display="advanced" Required="true">http://localhost
+</Config>
+
+<Config Type="Variable" Name="DB_CONNECTION" Target="DB_CONNECTION" Default="" Description="" Mask="false" Display="advanced" Required="true">mysql
+</Config>
+
+<Config Type="Variable" Name="DB_HOST" Target="DB_HOST" Default="" Description="" Mask="false" Display="advanced" Required="true">127.0.0.1
+</Config>
+
+<Config Type="Variable" Name="DB_PORT" Target="DB_PORT" Default="" Description="" Mask="false" Display="advanced" Required="true">3306
+</Config>
+
+<Config Type="Variable" Name="#DB_UNIX_SOCKET" Target="#DB_UNIX_SOCKET" Default="" Description="" Mask="false" Display="advanced" Required="true">/var/run/mysqld/mysqld.sock
+</Config>
+
+<Config Type="Variable" Name="DB_DATABASE" Target="DB_DATABASE" Default="" Description="" Mask="false" Display="advanced" Required="true">monica
+</Config>
+
+<Config Type="Variable" Name="DB_USERNAME" Target="DB_USERNAME" Default="" Description="" Mask="false" Display="advanced" Required="true">homestead
+</Config>
+
+<Config Type="Variable" Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Description="" Mask="false" Display="advanced" Required="true">secret
+</Config>
+
+<Config Type="Variable" Name="DB_PREFIX" Target="DB_PREFIX" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="DB_TEST_HOST" Target="DB_TEST_HOST" Default="" Description="" Mask="false" Display="advanced" Required="true">127.0.0.1
+</Config>
+
+<Config Type="Variable" Name="DB_TEST_DATABASE" Target="DB_TEST_DATABASE" Default="" Description="" Mask="false" Display="advanced" Required="true">monica_test
+</Config>
+
+<Config Type="Variable" Name="DB_TEST_USERNAME" Target="DB_TEST_USERNAME" Default="" Description="" Mask="false" Display="advanced" Required="true">homestead
+</Config>
+
+<Config Type="Variable" Name="DB_TEST_PASSWORD" Target="DB_TEST_PASSWORD" Default="" Description="" Mask="false" Display="advanced" Required="true">secret
+</Config>
+
+<Config Type="Variable" Name="DB_USE_UTF8MB4" Target="DB_USE_UTF8MB4" Default="" Description="" Mask="false" Display="advanced" Required="true">true
+</Config>
+
+<Config Type="Variable" Name="MAIL_DRIVER" Target="MAIL_DRIVER" Default="" Description="" Mask="false" Display="advanced" Required="true">smtp
+</Config>
+
+<Config Type="Variable" Name="MAIL_HOST" Target="MAIL_HOST" Default="" Description="" Mask="false" Display="advanced" Required="true">mailtrap.io
+</Config>
+
+<Config Type="Variable" Name="MAIL_PORT" Target="MAIL_PORT" Default="" Description="" Mask="false" Display="advanced" Required="true">2525
+</Config>
+
+<Config Type="Variable" Name="MAIL_USERNAME" Target="MAIL_USERNAME" Default="" Description="" Mask="false" Display="advanced" Required="true">null
+</Config>
+
+<Config Type="Variable" Name="MAIL_PASSWORD" Target="MAIL_PASSWORD" Default="" Description="" Mask="false" Display="advanced" Required="true">null
+</Config>
+
+<Config Type="Variable" Name="MAIL_ENCRYPTION" Target="MAIL_ENCRYPTION" Default="" Description="" Mask="false" Display="advanced" Required="true">null
+</Config>
+
+<Config Type="Variable" Name="MAIL_FROM_ADDRESS" Target="MAIL_FROM_ADDRESS" Default="" Description="" Mask="false" Display="advanced" Required="true">ValidEmailAddress
+</Config>
+
+<Config Type="Variable" Name="MAIL_FROM_NAME" Target="MAIL_FROM_NAME" Default="" Description="" Mask="false" Display="advanced" Required="true">"Some Name"
+</Config>
+
+<Config Type="Variable" Name="APP_EMAIL_NEW_USERS_NOTIFICATION" Target="APP_EMAIL_NEW_USERS_NOTIFICATION" Default="" Description="" Mask="false" Display="advanced" Required="true">EmailThatWillSendNotificationsForNewUser
+</Config>
+
+<Config Type="Variable" Name="APP_DEFAULT_TIMEZONE" Target="APP_DEFAULT_TIMEZONE" Default="" Description="" Mask="false" Display="advanced" Required="true">US/Eastern
+</Config>
+
+<Config Type="Variable" Name="APP_DEFAULT_LOCALE" Target="APP_DEFAULT_LOCALE" Default="" Description="" Mask="false" Display="advanced" Required="true">en
+</Config>
+
+<Config Type="Variable" Name="APP_DISABLE_SIGNUP" Target="APP_DISABLE_SIGNUP" Default="" Description="" Mask="false" Display="advanced" Required="true">true
+</Config>
+
+<Config Type="Variable" Name="APP_SIGNUP_DOUBLE_OPTIN" Target="APP_SIGNUP_DOUBLE_OPTIN" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="APP_TRUSTED_PROXIES" Target="APP_TRUSTED_PROXIES" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="LOG_CHANNEL" Target="LOG_CHANNEL" Default="" Description="" Mask="false" Display="advanced" Required="true">daily
+</Config>
+
+<Config Type="Variable" Name="SENTRY_SUPPORT" Target="SENTRY_SUPPORT" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="SENTRY_DSN" Target="SENTRY_DSN" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="CHECK_VERSION" Target="CHECK_VERSION" Default="" Description="" Mask="false" Display="advanced" Required="true">true
+</Config>
+
+<Config Type="Variable" Name="REQUIRES_SUBSCRIPTION" Target="REQUIRES_SUBSCRIPTION" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="STRIPE_KEY" Target="STRIPE_KEY" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="STRIPE_SECRET" Target="STRIPE_SECRET" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_MONTHLY_FRIENDLY_NAME" Target="PAID_PLAN_MONTHLY_FRIENDLY_NAME" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_MONTHLY_ID" Target="PAID_PLAN_MONTHLY_ID" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_MONTHLY_PRICE" Target="PAID_PLAN_MONTHLY_PRICE" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_ANNUAL_FRIENDLY_NAME" Target="PAID_PLAN_ANNUAL_FRIENDLY_NAME" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_ANNUAL_ID" Target="PAID_PLAN_ANNUAL_ID" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="PAID_PLAN_ANNUAL_PRICE" Target="PAID_PLAN_ANNUAL_PRICE" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="CACHE_DRIVER" Target="CACHE_DRIVER" Default="" Description="" Mask="false" Display="advanced" Required="true">database
+</Config>
+
+<Config Type="Variable" Name="SESSION_DRIVER" Target="SESSION_DRIVER" Default="" Description="" Mask="false" Display="advanced" Required="true">file
+</Config>
+
+<Config Type="Variable" Name="SESSION_LIFETIME" Target="SESSION_LIFETIME" Default="" Description="" Mask="false" Display="advanced" Required="true">120
+</Config>
+
+<Config Type="Variable" Name="QUEUE_DRIVER" Target="QUEUE_DRIVER" Default="" Description="" Mask="false" Display="advanced" Required="true">sync
+</Config>
+
+<Config Type="Variable" Name="DEFAULT_FILESYSTEM" Target="DEFAULT_FILESYSTEM" Default="" Description="" Mask="false" Display="advanced" Required="true">public
+</Config>
+
+<Config Type="Variable" Name="AWS_KEY" Target="AWS_KEY" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="AWS_SECRET" Target="AWS_SECRET" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="AWS_REGION" Target="AWS_REGION" Default="" Description="" Mask="false" Display="advanced" Required="true">us-east-1
+</Config>
+
+<Config Type="Variable" Name="AWS_BUCKET" Target="AWS_BUCKET" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="AWS_SERVER" Target="AWS_SERVER" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="2FA_ENABLED" Target="2FA_ENABLED" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="MOBILE_CLIENT_ID" Target="MOBILE_CLIENT_ID" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="MOBILE_CLIENT_SECRET" Target="MOBILE_CLIENT_SECRET" Default="" Description="" Mask="false" Display="advanced" Required="true">
+</Config>
+
+<Config Type="Variable" Name="ALLOW_STATISTICS_THROUGH_PUBLIC_API_ACCESS" Target="ALLOW_STATISTICS_THROUGH_PUBLIC_API_ACCESS" Default="" Description="" Mask="false" Display="advanced" Required="true">false
+</Config>
+
+<Config Type="Variable" Name="POLICY_COMPLIANT" Target="POLICY_COMPLIANT" Default="" Description="" Mask="false" Display="advanced" Required="true">true</Config>
+
+
+</Container>
