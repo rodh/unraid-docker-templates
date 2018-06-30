@@ -14,7 +14,7 @@
   <Privileged>false</Privileged>
   <Network>bridge</Network>
   <WebUI>http://[IP]/</WebUI>
-  <Icon>https://avatars0.githubusercontent.com/u/25832602?s=200&v=4</Icon>
+  <Icon>https://avatars0.githubusercontent.com/u/25832602?s=200</Icon>
   <ExtraParams></ExtraParams>
   <Config Type="Path" Name="Public" Target="/var/www/monica/storage/app/public" Default="/mnt/user/appdata/Monica" Mode="rw" Description="" Display="always" Required="true">/mnt/user/appdata/Monica</Config>
   <!-- We do not want to run this with any kind of permissions -->
