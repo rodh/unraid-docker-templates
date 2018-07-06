@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Elasticsearch-5.6.2</Name>
+  <Repository>59b11c02b218</Repository>
+  <Registry>https://docker.elastic.co/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://discuss.elastic.co/c/elasticsearch</Support>
+  <Overview>Elasticsearch is a open source, distributed, RESTful search and analytics engine.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:9205]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://i.imgur.com/vCjmBYX.png</Icon>
+  <ExtraParams/>
+  <DateInstalled>1507369733</DateInstalled>
+  <Description>Elasticsearch is a open source, distributed, RESTful search and analytics engine.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9205</HostPort>
+        <ContainerPort>9200</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/elasticsearch5/data</HostDir>
+      <ContainerDir>/usr/share/elasticsearch/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>single-node</Value>
+      <Name>discovery.type</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>-Xms512M -Xmx512M</Value>
+      <Name>ES_JAVA_OPTS</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Host Port 1" Target="9200" Default="9205" Mode="tcp" Description="Container Port: 9200" Type="Port" Display="always" Required="true" Mask="false">9205</Config>
+  <Config Name="Host Path 1" Target="/usr/share/elasticsearch/data" Default="/mnt/cache/appdata/elasticsearch5/data" Mode="rw" Description="Container Path: /usr/share/elasticsearch/data" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/elasticsearch5/data</Config>
+  <Config Name="discovery.type" Target="discovery.type" Default="single-node" Mode="" Description="Container Variable: discovery.type" Type="Variable" Display="advanced" Required="false" Mask="false">single-node</Config>
+  <Config Name="Heap size" Target="ES_JAVA_OPTS" Default="-Xms512M -Xmx512M" Mode="" Description="JVM heap size" Type="Variable" Display="advanced" Required="false" Mask="false">-Xms512M -Xmx512M</Config>
+</Container>
