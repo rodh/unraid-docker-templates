@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Kibana-5.6.2</Name>
+  <Repository>5b27c7e97a53</Repository>
+  <Registry>https://docker.elastic.co/</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://discuss.elastic.co/c/kibana</Support>
+  <Overview>Kibana lets you visualise your Elasticsearch data and navigate the Elastic Stack.</Overview>
+  <Category>Tools:</Category>
+  <WebUI>http://[IP]:[PORT:5605]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://i.imgur.com/BIzytYO.png</Icon>
+  <ExtraParams/>
+  <DateInstalled>1507399346</DateInstalled>
+  <Description>Kibana lets you visualise your Elasticsearch data and navigate the Elastic Stack.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>5605</HostPort>
+        <ContainerPort>5601</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data/>
+  <Environment>
+    <Variable>
+      <Value>http://localhost:9205</Value>
+      <Name>ELASTICSEARCH_URL</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Kibana HTTP Port" Target="5601" Default="" Mode="tcp" Description="Container Port: 5601" Type="Port" Display="advanced" Required="false" Mask="false">5605</Config>
+  <Config Name="elasticsearch.url" Target="ELASTICSEARCH_URL" Default="" Mode="" Description="Defines which Elasticsearch URL to talk to" Type="Variable" Display="advanced" Required="false" Mask="false">http://192.168.1.199:9205</Config>
+</Container>
